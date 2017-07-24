@@ -33,6 +33,26 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#
+## Devise: User Authentication
+gem 'devise'
+gem 'devise-bootstrap-views'
+
+#
+## Bootstrap: Styling
+gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'sass-rails', '>= 3.2'
+# gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'sprockets-rails'
+
+#
+## jQuery: Styling and Behavior
+gem 'jquery-rails'
+
+#
+## FontAwesome: Styling
+gem 'font-awesome-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
