@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   resources :admins, only: [:index, :show, :edit, :update]
 
   #
+  ## API Routes
+  namespace :api do
+    namespace :v1 do
+      resources :routines, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
+
+  #
   ## Template Routes
   # All routes
   get "dashboards/dashboard_1"
