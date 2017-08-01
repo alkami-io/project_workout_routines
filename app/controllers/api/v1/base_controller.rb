@@ -10,11 +10,15 @@ class Api::V1::BaseController < ApplicationController
     return api_error(status: 404, errors: 'Not Found')
   end
 
+  #
+  ## Require User to login. Locate API user by the api key they pass with the request
   def require_login!
     return true if current_api_user.api_key.present?
     render json: { errors: [ { detail: 'Access Denied' } ] }, status: 401
   end
 
+  #
+  ## Authenticate User with APIKey
   def authenticate_token
     authenticate_with_http_token do |api_key, options|
        ApiUser.find_by(api_key: api_key)
