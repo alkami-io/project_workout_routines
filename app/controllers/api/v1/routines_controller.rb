@@ -4,7 +4,7 @@ class Api::V1::RoutinesController < Api::V1::BaseController
   #
   ## GET api/v1/routines
   def index
-    routines = Routine.all
+    routines = Routine.where(user_id: params[:user_id])
 
     render json: routines
   end
@@ -22,7 +22,8 @@ class Api::V1::RoutinesController < Api::V1::BaseController
   def create
     routine = Routine.create(
        name: params[:name],
-                focus: params[:focus].to_i)
+                focus: params[:focus].to_i,
+                user_id: params[:user_id].to_i)
 
     if routine.save
       render json: {status: 201}
